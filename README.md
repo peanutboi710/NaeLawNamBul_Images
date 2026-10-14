@@ -54,7 +54,7 @@ character/
 │   ├── reenact/case-{사건 id}/  사건별 재연 컷(`headline` · `sub-1` · `detail-1`)
 │   ├── trio/            로 3인 합의 컷
 │   └── compare/         내로 · 로울 · 남불 비교 컷
-└── _original/    생성 직후 원본 백업(117장, `original_` 접두사)
+└── _original/    생성 직후 원본 백업(118장, `original_` 접두사)
 ```
 
 - **쓸 때는 `standing/` · `sheets/` · `cuts/`의 파일을 쓴다.** `_original/`은 백업이다.
