@@ -60,6 +60,7 @@ character/
 - **쓸 때는 `standing/` · `sheets/` · `cuts/`의 파일을 쓴다.** `_original/`은 백업이다.
 - 이름 끝의 **`_sample`**은 화면 흐름 확인용 샘플이라는 뜻이다. 정식본이 나오면 `_sample`을 뗀 이름으로 바꾼다.
 - **공용 재연 세트 2**(`reenact-common-2_cut_*`, 실내에서 두 사람이 마주한 장면)는 10/14에 사건 1 샘플(`reenact-case-1_cut_*_sample`)로 만든 것을 10/15에 공용으로 옮긴 것이다. 사건 1 재연 컷은 새로 만든다.
+  - **임시 사본**: 프론트(`frontend/src/content/case-1/script.json`)가 옛 경로를 쓰고 있어 `cuts/reenact/case-1/reenact-case-1_cut_*_sample.png`에 같은 사본을 남겨 두었다. 프론트 경로를 고친 PR(COMMON-35)이 머지되면 지운다.
 - **사건별 재연 역할 배정**(역할 순환): 사건 1(빌린 돈 문제로 찾아온 지인을 살해한 사건, 가상) = 남불 A씨(빌린 쪽) · 내로 B씨(빌려준 쪽). 의상은 사건마다 정하고 내로의 반다나는 뺀다. 다음 사건은 반대로 맡는다.
 - `_original/`의 이름은 `original_` + 위 규칙이고, 같은 이미지를 다시 뽑은 이력은 `_v1` `_v2`로 구분한다(예: `original_personality-13_nambul_whiteboard_v3.png`). 정식 파일과 내용이 같은 사본이 대부분이고, 탈락본(예: `original_law-book_standing_a2-tall-book.png`)은 `_original/`에만 있다.
 - 폐기한 시안(옛 시트 · 실패한 재생성 시도)은 이 저장소에 올리지 않는다.
