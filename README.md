@@ -41,11 +41,13 @@
 
 ```
 character/
-├── standing/     스탠딩 일러스트 5장(기준 이미지)
+├── standing/     스탠딩 일러스트 5장(기준 이미지) + 마스코트 버전 로 3장(`{로}_standing_deform-mascot.png`)
 ├── sheets/       시트(16:9, 신문지색 배경)
 │   ├── {캐릭터}_sheet_reference.png   기준 시트(캐릭터마다 1장) · all_sheet_height-compare.png(키 비교)
 │   ├── acting/        연기 시트
-│   ├── deform/        데포르메 대표 시트(ranma · cheek · ppg)
+│   ├── wardrobe/      의상 시트(지금은 내로 · 남불 일상 의상 `{캐릭터}_sheet_wardrobe.png`)
+│   ├── props_sheet_catalog.png  소품 시트
+│   ├── deform/        데포르메 대표 시트(ranma · cheek · ppg) · 마스코트 로 시트 3장(`{로}_sheet_deform-mascot.png`)
 │   └── role-outfits/  역할 의상 시트(내로 · 남불)
 ├── cuts/         화면에 쓰는 컷(투명 배경)
 │   ├── {캐릭터}/base/   장면 컷 · {캐릭터}/icon/   아이콘
@@ -54,12 +56,12 @@ character/
 │   ├── reenact/case-{사건 id}/  사건별 재연 컷(`headline` · `sub-1` · `detail-1`)
 │   ├── trio/            로 3인 합의 컷
 │   └── compare/         내로 · 로울 · 남불 비교 컷
-└── _original/    생성 직후 원본 백업(118장, `original_` 접두사)
+└── _original/    생성 직후 원본 백업(130장, `original_` 접두사)
 ```
 
 - **쓸 때는 `standing/` · `sheets/` · `cuts/`의 파일을 쓴다.** `_original/`은 백업이다.
 - 이름 끝의 **`_sample`**은 화면 흐름 확인용 샘플이라는 뜻이다. 정식본이 나오면 `_sample`을 뗀 이름으로 바꾼다.
-- **공용 재연 세트 2**(`reenact-common-2_cut_*`, 실내에서 두 사람이 마주한 장면)는 10/14에 사건 1 샘플(`reenact-case-1_cut_*_sample`)로 만든 것을 10/15에 공용으로 옮긴 것이다. 사건 1 재연 컷은 새로 만든다.
+- **공용 재연 세트 2**(`reenact-common-2_cut_*`, 실내에서 두 사람이 마주한 장면)는 10/14에 사건 1 샘플(`reenact-case-1_cut_*_sample`)로 만든 것을 10/15에 공용으로 옮긴 것이다. 사건 1 재연 컷은 10/19에 새로 만들어 `cuts/reenact/case-1/`에 넣었다(`headline` 다툼이 고조되는 순간 · `sub-1` 집으로 찾아옴 · `detail-1` 오래 이어진 변제 다툼).
   - 옛 경로 임시 사본(`cuts/reenact/case-1/reenact-case-1_cut_*_sample.png` 3장)은 프론트 경로를 고친 PR(COMMON-35, #149)이 머지된 10/16에 지웠다.
 - **사건별 재연 역할 배정**(역할 순환): 사건 1(빌린 돈 문제로 찾아온 지인을 살해한 사건, 가상) = 남불 A씨(빌린 쪽) · 내로 B씨(빌려준 쪽). 의상은 사건마다 정하고 내로의 반다나는 뺀다. 다음 사건은 반대로 맡는다.
 - `_original/`의 이름은 `original_` + 위 규칙이고, 같은 이미지를 다시 뽑은 이력은 `_v1` `_v2`로 구분한다(예: `original_personality-13_nambul_whiteboard_v3.png`). 정식 파일과 내용이 같은 사본이 대부분이고, 탈락본(예: `original_law-book_standing_a2-tall-book.png`)은 `_original/`에만 있다.
@@ -78,6 +80,8 @@ character/
 정식 해상도(장면 2048 × 2560, 아이콘 512 × 512)는 모델 교체 후 재생성 때 맞춘다. 일부 PNG에는 AI 생성 출처 표시(C2PA)가 들어 있다.
 
 ## 상태 (2026-10-14 기준)
+
+> 10/19 추가: 마스코트 버전 로 스탠딩 · 기준 시트 6장, 사건 1 재연 컷 3장, 소품 시트, 일상 의상 시트 2장(COMMON-46).
 
 10/14에 검수한 이미지는 모두 통과했다(샘플 기준).
 
