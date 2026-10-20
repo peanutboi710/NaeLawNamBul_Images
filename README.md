@@ -58,7 +58,7 @@ character/
 │   │   └── mascot/  마스코트 버전 로 컷 `{로}_cut-mascot_{장면}-{감정}.png` (로 3종)
 │   ├── personality/     성향 결과 컷(16유형 × 2캐릭터)
 │   ├── reenact/common/  사건 이미지가 없을 때 쓰는 공용 재연 컷(세트 1 · 2)
-│   ├── reenact/case-{사건 id}/  사건별 재연 컷(`headline` · `sub-1` · `detail-1`)
+│   ├── reenact/case-{사건 id}/  사건별 재연 컷(`headline` · `origin` · `conclusion`, 공용 세트는 `headline` · `sub-1` · `detail-1`)
 │   ├── trio/            로 3인 합의 컷(`trio_cut_*` 기존 · `trio_cut-mascot_*` 마스코트 버전)
 │   └── compare/         내로 · 로울 · 남불 비교 컷(`compare_cut_*` 기존 · `compare_cut-mascot_*` 마스코트 버전)
 └── _original/    생성 직후 원본 백업(169장, `original_` 접두사)
@@ -66,7 +66,7 @@ character/
 
 - **쓸 때는 `standing/` · `sheets/` · `cuts/`의 파일을 쓴다.** `_original/`은 백업이다.
 - 이름 끝의 **`_sample`**은 화면 흐름 확인용 샘플이라는 뜻이다. 정식본이 나오면 `_sample`을 뗀 이름으로 바꾼다.
-- **공용 재연 세트 2**(`reenact-common-2_cut_*`, 실내에서 두 사람이 마주한 장면)는 10/14에 사건 1 샘플(`reenact-case-1_cut_*_sample`)로 만든 것을 10/15에 공용으로 옮긴 것이다. 사건 1 재연 컷은 10/19에 새로 만들어 `cuts/reenact/case-1/`에 넣었다(`headline` 다툼이 고조되는 순간 · `sub-1` 집으로 찾아옴 · `detail-1` 오래 이어진 변제 다툼).
+- **공용 재연 세트 2**(`reenact-common-2_cut_*`, 실내에서 두 사람이 마주한 장면)는 10/14에 사건 1 샘플(`reenact-case-1_cut_*_sample`)로 만든 것을 10/15에 공용으로 옮긴 것이다. 사건 1 재연 컷은 10/19에 새로 만들어 `cuts/reenact/case-1/`에 넣었다(`headline` 다툼이 고조되는 순간 · `origin` 집으로 찾아옴 · `conclusion` 오래 이어진 변제 다툼). 10/20에 `sub-1` → `origin`(발단), `detail-1` → `conclusion`(결론)으로 이름을 바꿨다(FE-63, 프론트 `case-1-origin.webp` · `case-1-conclusion.webp`와 맞춤).
   - 옛 경로 임시 사본(`cuts/reenact/case-1/reenact-case-1_cut_*_sample.png` 3장)은 프론트 경로를 고친 PR(COMMON-35, #149)이 머지된 10/16에 지웠다.
 - **사건별 재연 역할 배정**(역할 순환): 사건 1(빌린 돈 문제로 찾아온 지인을 살해한 사건, 가상) = 남불 A씨(빌린 쪽) · 내로 B씨(빌려준 쪽). 의상은 사건마다 정하고 내로의 반다나는 뺀다. 다음 사건은 반대로 맡는다.
 - `_original/`의 이름은 `original_` + 위 규칙이고, 같은 이미지를 다시 뽑은 이력은 `_v1` `_v2`로 구분한다(예: `original_personality-13_nambul_whiteboard_v3.png`). 정식 파일과 내용이 같은 사본이 대부분이고, 탈락본(예: `original_law-book_standing_a2-tall-book.png`)은 `_original/`에만 있다.
