@@ -27,10 +27,10 @@
 | 구분 | 값 |
 | --- | --- |
 | 대상 | `naero` · `nambul` · `law-scale` · `law-gavel` · `law-book` · `trio`(로 3인) · `compare`(내로 · 로울 · 남불 비교) · `reenact-common`(공용 재연, 두 번째 세트부터 `reenact-common-2`) · `reenact-case-{사건 id}`(사건별 재연) · `personality-{번호}_{캐릭터}`(성향 결과) · `all`(여럿이 함께 나오는 시트) |
-| 종류 | `standing`(스탠딩) · `sheet`(시트) · `cut`(장면 컷) · `cut-cheek`(볼따구 컷) · `icon`(아이콘) |
-| 세부 | 시트: `reference` · `acting` · `role-outfits` · `deform-ranma` · `deform-cheek` · `deform-cheek-slim` · `deform-ppg`, 컷: `{장면}-{감정}` (예: `guide-neutral`) |
+| 종류 | `standing`(스탠딩) · `sheet`(시트) · `cut`(장면 컷) · `cut-cheek`(볼따구 컷) · `cut-cheek-slim`(옛 볼따구 컷) · `cut-role-{judge|prosecutor|defense|actor|case-{사건 id}}`(재연 역할 컷) · `cut-mascot`(마스코트 로 컷) · `icon`(아이콘) |
+| 세부 | 시트: `reference` · `acting` · `role-outfits` · `wardrobe`(의상) · `deform-lineup`(데포르메 묶음) · `deform-mascot` · `deform-ranma` · `deform-cheek` · `deform-cheek-slim` · `deform-ppg`, 컷: `{장면}-{감정}` (예: `guide-neutral`), 마스코트 로 합의 · 비교 컷은 `trio_cut-mascot_{idle|think}` · `compare_cut-mascot_trio-thinking` |
 
-예: `naero_standing.png` · `law-gavel_sheet_reference.png` · `nambul_cut_guide-neutral.png` · `naero_icon_face-cheer.png` · `personality-06_naero_pinky-promise.png` · `trio_cut_idle.png` · `reenact-common_cut_headline.png`
+예: `naero_standing.png` · `law-gavel_sheet_reference.png` · `nambul_cut_guide-neutral.png` · `naero_icon_face-cheer.png` · `personality-06_naero_pinky-promise.png` · `trio_cut_idle.png` · `reenact-common_cut_headline.png` · `naero_cut-role-judge_idle-neutral.png` · `law-scale_cut-mascot_idle-neutral.png` · `naero_sheet_deform-cheek-slim.png`
 
 - **장면** `idle` · `guide` · `react` · `read` · `cheer` · `deliver`, **감정** `neutral` · `happy` · `surprised` · `thinking` · `sorry` · `cheer`. 화난 표정은 만들지 않는다.
 - **성향 결과**: 번호 `01 ~ 16`은 유형에 고정되어 있다. 한 유형마다 내로 · 남불 두 장이 있다. 번호 · 유형명 · 기본 캐릭터는 공개 저장소의 성향 이미지 번호표를 본다.
@@ -84,15 +84,15 @@ character/
 
 정식 해상도(장면 2048 × 2560, 아이콘 512 × 512)는 모델 교체 후 재생성 때 맞춘다. 일부 PNG에는 AI 생성 출처 표시(C2PA)가 들어 있다.
 
-## 상태 (2026-10-14 기준)
+## 상태 (2026-10-20 기준)
 
 > 10/19 추가: 마스코트 버전 로 스탠딩 · 기준 시트 6장, 사건 1 재연 컷 3장, 소품 시트, 일상 의상 시트 2장(COMMON-46).
 >
-> 10/20 추가: 로 의상 시트 3장, 5명 라인업 시트 5장, 마스코트 로 컷 9장, 마스코트 합의 · 비교 컷 3장, 내로 · 남불 역할 컷 10장. `cuts/{캐릭터}/base/`를 `scene` · `cheek` · `role` · `mascot` 하위 폴더로 나눴다. 로 데포르메 시트 중 cheek · ranma · ppg 9장은 아직 없다.
+> 10/20 추가: 로 의상 시트 3장, 5명 라인업 시트 5장, 마스코트 로 컷 9장, 마스코트 합의 · 비교 컷 3장, 내로 · 남불 역할 컷 10장. `cuts/{캐릭터}/base/`를 `scene` · `cheek` · `cheek-slim` · `role` · `mascot` 하위 폴더로 나눴다. 로 데포르메 시트 중 cheek · ranma · ppg 9장은 아직 없다.
 >
 > 10/20 추가(2): 볼따구 컷을 시트 `deform-cheek` 기준(짧은 만두형 몸통 · 납작한 볼)으로 4장 다시 만들어 `base/cheek/`에 넣었다. 이전 컷 4장은 `base/cheek-slim/`(`cut-cheek-slim_*`)으로 이름을 바꿔 보존하고, 그 그림체의 시트 2장(`deform-cheek-slim`)을 새로 만들었다. 새 시트는 눈이 작고 볼 강조가 적은 옛 아기 캐릭터 느낌을 노렸지만 기존 시트와 차이가 크지 않다. 재생성 여부는 검수 후 정한다.
 
-10/14에 검수한 이미지는 모두 통과했다(샘플 기준).
+10/14에 검수한 이미지는 모두 통과했다(샘플 기준). 10/19 · 10/20에 추가한 이미지는 아직 검수 전이다.
 
 | 묶음 | 상태 |
 | --- | --- |
@@ -103,6 +103,7 @@ character/
 | 성향 결과 32장(16유형 × 내로 · 남불) | ✅ |
 | 공용 재연 컷 6장(세트 1 · 2) | ✅ (세트 2는 10/15 사건 1 샘플에서 옮김) |
 | 연기 · 역할 의상 · 데포르메 시트 | ✅ (란마는 목표 약 5등신에 못 미침, 3 ~ 4등신) |
+| 10/19 · 10/20 추가분(마스코트 로 스탠딩 · 시트 · 컷, 라인업 · 의상 시트, 역할 컷, 사건 1 재연 컷, 소품 시트, 볼따구 컷 재생성 · `cheek-slim` 시트) | 🟨 검수 전 (`cheek-slim` 시트는 기존 시트와 차이가 작아 재생성 검토) |
 
 남은 일: 사건별 재연 컷(사건이 정해지면), 후순위 시트(로 cheek · ranma · ppg 데포르메). 최신 목록은 아래 기준 문서를 본다.
 
