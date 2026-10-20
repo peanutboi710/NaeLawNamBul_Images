@@ -45,18 +45,22 @@ character/
 ├── sheets/       시트(16:9, 신문지색 배경)
 │   ├── {캐릭터}_sheet_reference.png   기준 시트(캐릭터마다 1장) · all_sheet_height-compare.png(키 비교)
 │   ├── acting/        연기 시트
-│   ├── wardrobe/      의상 시트(지금은 내로 · 남불 일상 의상 `{캐릭터}_sheet_wardrobe.png`)
+│   ├── wardrobe/      의상 시트(`{캐릭터}_sheet_wardrobe.png`, 내로 · 남불 · 로 3종 5장)
 │   ├── props_sheet_catalog.png  소품 시트
-│   ├── deform/        데포르메 대표 시트(ranma · cheek · ppg) · 마스코트 로 시트 3장(`{로}_sheet_deform-mascot.png`)
+│   ├── deform/        데포르메 대표 시트(ranma · cheek · ppg) · 마스코트 로 시트 3장(`{로}_sheet_deform-mascot.png`) · 5명 라인업 시트(`{캐릭터}_sheet_deform-lineup.png`)
 │   └── role-outfits/  역할 의상 시트(내로 · 남불)
 ├── cuts/         화면에 쓰는 컷(투명 배경)
-│   ├── {캐릭터}/base/   장면 컷 · {캐릭터}/icon/   아이콘
+│   ├── {캐릭터}/base/   장면 컷(하위 폴더로 나눔) · {캐릭터}/icon/   아이콘
+│   │   ├── scene/   장면 컷 `{캐릭터}_cut_{장면}-{감정}.png`
+│   │   ├── cheek/   볼따구 컷 `{캐릭터}_cut-cheek_*.png` (내로 · 남불)
+│   │   ├── role/    재연 역할 컷 `{캐릭터}_cut-role-{judge|prosecutor|defense|actor|case-1}_idle-neutral.png` (내로 · 남불)
+│   │   └── mascot/  마스코트 버전 로 컷 `{로}_cut-mascot_{장면}-{감정}.png` (로 3종)
 │   ├── personality/     성향 결과 컷(16유형 × 2캐릭터)
 │   ├── reenact/common/  사건 이미지가 없을 때 쓰는 공용 재연 컷(세트 1 · 2)
 │   ├── reenact/case-{사건 id}/  사건별 재연 컷(`headline` · `sub-1` · `detail-1`)
-│   ├── trio/            로 3인 합의 컷
-│   └── compare/         내로 · 로울 · 남불 비교 컷
-└── _original/    생성 직후 원본 백업(130장, `original_` 접두사)
+│   ├── trio/            로 3인 합의 컷(`trio_cut_*` 기존 · `trio_cut-mascot_*` 마스코트 버전)
+│   └── compare/         내로 · 로울 · 남불 비교 컷(`compare_cut_*` 기존 · `compare_cut-mascot_*` 마스코트 버전)
+└── _original/    생성 직후 원본 백업(160장, `original_` 접두사)
 ```
 
 - **쓸 때는 `standing/` · `sheets/` · `cuts/`의 파일을 쓴다.** `_original/`은 백업이다.
@@ -71,7 +75,7 @@ character/
 
 | 종류 | 비율 · 크기 | 배경 |
 | --- | --- | --- |
-| 장면 컷(`cuts/{캐릭터}/base`, `personality`) | 4:5, 1122 × 1402 | 투명 |
+| 장면 컷(`cuts/{캐릭터}/base/*`, `personality`) | 4:5, 1122 × 1402 | 투명 |
 | 아이콘(`cuts/{캐릭터}/icon`) | 1:1, 1254 × 1254 | 투명 |
 | 시트 · 재연 컷 | 16:9, 1672 × 941 | 지금 이미지는 신문지색 `#ECE2D4`. **10/15부터 새로 만드는 것은 투명**(신문 느낌은 후보정) |
 | 합의 · 비교 컷(`trio`, `compare`) | 16:9, 1672 × 941 | 투명 |
@@ -82,6 +86,8 @@ character/
 ## 상태 (2026-10-14 기준)
 
 > 10/19 추가: 마스코트 버전 로 스탠딩 · 기준 시트 6장, 사건 1 재연 컷 3장, 소품 시트, 일상 의상 시트 2장(COMMON-46).
+>
+> 10/20 추가: 로 의상 시트 3장, 5명 라인업 시트 5장, 마스코트 로 컷 9장, 마스코트 합의 · 비교 컷 3장, 내로 · 남불 역할 컷 10장. `cuts/{캐릭터}/base/`를 `scene` · `cheek` · `role` · `mascot` 하위 폴더로 나눴다. 로 데포르메 시트 중 cheek · ranma · ppg 9장은 아직 없다.
 
 10/14에 검수한 이미지는 모두 통과했다(샘플 기준).
 
@@ -95,7 +101,7 @@ character/
 | 공용 재연 컷 6장(세트 1 · 2) | ✅ (세트 2는 10/15 사건 1 샘플에서 옮김) |
 | 연기 · 역할 의상 · 데포르메 시트 | ✅ (란마는 목표 약 5등신에 못 미침, 3 ~ 4등신) |
 
-남은 일: 사건별 재연 컷(사건이 정해지면), 후순위 시트(로 데포르메 등). 최신 목록은 아래 기준 문서를 본다.
+남은 일: 사건별 재연 컷(사건이 정해지면), 후순위 시트(로 cheek · ranma · ppg 데포르메). 최신 목록은 아래 기준 문서를 본다.
 
 ## 기준 문서
 
