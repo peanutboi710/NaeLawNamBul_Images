@@ -61,7 +61,7 @@ character/
 │   ├── reenact/case-{사건 id}/  사건별 재연 컷(`headline` · `sub-1` · `detail-1`)
 │   ├── trio/            로 3인 합의 컷(`trio_cut_*` 기존 · `trio_cut-mascot_*` 마스코트 버전)
 │   └── compare/         내로 · 로울 · 남불 비교 컷(`compare_cut_*` 기존 · `compare_cut-mascot_*` 마스코트 버전)
-└── _original/    생성 직후 원본 백업(166장, `original_` 접두사)
+└── _original/    생성 직후 원본 백업(169장, `original_` 접두사)
 ```
 
 - **쓸 때는 `standing/` · `sheets/` · `cuts/`의 파일을 쓴다.** `_original/`은 백업이다.
@@ -91,6 +91,8 @@ character/
 > 10/20 추가: 로 의상 시트 3장, 5명 라인업 시트 5장, 마스코트 로 컷 9장, 마스코트 합의 · 비교 컷 3장, 내로 · 남불 역할 컷 10장. `cuts/{캐릭터}/base/`를 `scene` · `cheek` · `cheek-slim` · `role` · `mascot` 하위 폴더로 나눴다. 로 데포르메 시트 중 cheek · ranma · ppg 9장은 아직 없다.
 >
 > 10/20 추가(2): 볼따구 컷을 시트 `deform-cheek` 기준(짧은 만두형 몸통 · 납작한 볼)으로 4장 다시 만들어 `base/cheek/`에 넣었다. 이전 컷 4장은 `base/cheek-slim/`(`cut-cheek-slim_*`)으로 이름을 바꿔 보존하고, 그 그림체의 시트 2장(`deform-cheek-slim`)을 새로 만들었다. 새 시트는 눈이 작고 볼 강조가 적은 옛 아기 캐릭터 느낌을 노렸지만 기존 시트와 차이가 크지 않다. 재생성 여부는 검수 후 정한다.
+>
+> 10/20 추가(3): 배경이 흰색(알파 없음)으로 나온 로봉 · 로북 라인업 시트와 로봉 의상 시트 3장을 배경 제거한 투명본으로 교체했다. 흰 배경 원본은 `_original/`에 `original_{이름}_v1.png`로 보존했다.
 
 10/14에 검수한 이미지는 모두 통과했다(샘플 기준). 10/19 · 10/20에 추가한 이미지는 아직 검수 전이다.
 
