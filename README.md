@@ -26,11 +26,11 @@
 
 | 구분 | 값 |
 | --- | --- |
-| 대상 | `naero` · `nambul` · `law-scale` · `law-gavel` · `law-book` · `trio`(로 3인) · `compare`(내로 · 로울 · 남불 비교) · `reenact-common`(공용 재연, 두 번째 세트부터 `reenact-common-2`) · `reenact-case-{사건 id}`(사건별 재연) · `personality-{번호}_{캐릭터}`(성향 결과) · `all`(여럿이 함께 나오는 시트) |
+| 대상 | `naero` · `nambul` · `law-scale` · `law-gavel` · `law-book` · `trio`(로 3인) · `compare`(내로 · 로울 · 남불 비교) · `reenact-common-{분류}`(공용 재연, 분류 `property` · `body` · `life`) · `reenact-case-{사건 id}`(사건별 재연) · `personality-{번호}_{캐릭터}`(성향 결과) · `all`(여럿이 함께 나오는 시트) |
 | 종류 | `standing`(스탠딩) · `sheet`(시트) · `cut`(장면 컷) · `cut-cheek`(볼따구 컷) · `cut-cheek-slim`(옛 볼따구 컷) · `cut-role-{judge|prosecutor|defense|actor|case-{사건 id}}`(재연 역할 컷) · `cut-mascot`(마스코트 로 컷) · `icon`(아이콘) |
 | 세부 | 시트: `reference` · `acting` · `role-outfits` · `wardrobe`(의상) · `deform-lineup`(데포르메 묶음) · `deform-mascot` · `deform-ranma` · `deform-cheek` · `deform-cheek-slim` · `deform-ppg`, 컷: `{장면}-{감정}` (예: `guide-neutral`), 마스코트 로 합의 · 비교 컷은 `trio_cut-mascot_{idle|think}` · `compare_cut-mascot_trio-thinking` |
 
-예: `naero_standing.png` · `law-gavel_sheet_reference.png` · `nambul_cut_guide-neutral.png` · `naero_icon_face-cheer.png` · `personality-06_naero_pinky-promise.png` · `trio_cut_idle.png` · `reenact-common_cut_headline.png` · `naero_cut-role-judge_idle-neutral.png` · `law-scale_cut-mascot_idle-neutral.png` · `naero_sheet_deform-cheek-slim.png`
+예: `naero_standing.png` · `law-gavel_sheet_reference.png` · `nambul_cut_guide-neutral.png` · `naero_icon_face-cheer.png` · `personality-06_naero_pinky-promise.png` · `trio_cut_idle.png` · `reenact-common-property_cut_headline.png` · `naero_cut-role-judge_idle-neutral.png` · `law-scale_cut-mascot_idle-neutral.png` · `naero_sheet_deform-cheek-slim.png`
 
 - **장면** `idle` · `guide` · `react` · `read` · `cheer` · `deliver`, **감정** `neutral` · `happy` · `surprised` · `thinking` · `sorry` · `cheer`. 안내 · 리액션 · 성향 결과 · 아이콘에는 화난 표정을 쓰지 않는다(감정 코드에 `angry` 없음). 재연 · 연기 · 시트에서는 극적 긴장감 · 감정선을 위해 날카롭거나 화난 표정도 허용한다(10/20 완화, 폭력 · 조롱은 금지).
 - **성향 결과**: 번호 `01 ~ 16`은 유형에 고정되어 있다. 한 유형마다 내로 · 남불 두 장이 있다. 번호 · 유형명 · 기본 캐릭터는 공개 저장소의 성향 이미지 번호표를 본다.
@@ -57,8 +57,8 @@ character/
 │   │   ├── role/    재연 역할 컷 `{캐릭터}_cut-role-{judge|prosecutor|defense|actor|case-1}_idle-neutral.png` (내로 · 남불)
 │   │   └── mascot/  마스코트 버전 로 컷 `{로}_cut-mascot_{장면}-{감정}.png` (로 3종)
 │   ├── personality/     성향 결과 컷(16유형 × 2캐릭터)
-│   ├── reenact/common/  사건 이미지가 없을 때 쓰는 공용 재연 컷(세트 1 · 2)
-│   ├── reenact/case-{사건 id}/  사건별 재연 컷(`headline` · `origin` · `conclusion`, 공용 세트는 `headline` · `sub-1` · `detail-1`)
+│   ├── reenact/common/  사건 이미지가 없을 때 쓰는 공용 재연 컷(범죄 분류 `property`(재산) · `body`(신체) · `life`(생명) 3종 × 자리 3장)
+│   ├── reenact/case-{사건 id}/  사건별 재연 컷(`headline` · `origin` · `conclusion`, 공용도 같은 자리)
 │   ├── trio/            로 3인 합의 컷(`trio_cut_*` 기존 · `trio_cut-mascot_*` 마스코트 버전)
 │   └── compare/         내로 · 로울 · 남불 비교 컷(`compare_cut_*` 기존 · `compare_cut-mascot_*` 마스코트 버전)
 └── _original/    생성 직후 원본 백업(169장, `original_` 접두사)
@@ -66,7 +66,8 @@ character/
 
 - **쓸 때는 `standing/` · `sheets/` · `cuts/`의 파일을 쓴다.** `_original/`은 백업이다.
 - 이름 끝의 **`_sample`**은 화면 흐름 확인용 샘플이라는 뜻이다. 정식본이 나오면 `_sample`을 뗀 이름으로 바꾼다.
-- **공용 재연 세트 2**(`reenact-common-2_cut_*`, 실내에서 두 사람이 마주한 장면)는 10/14에 사건 1 샘플(`reenact-case-1_cut_*_sample`)로 만든 것을 10/15에 공용으로 옮긴 것이다. 사건 1 재연 컷은 10/19에 새로 만들어 `cuts/reenact/case-1/`에 넣었다(`headline` 다툼이 고조되는 순간 · `origin` 집으로 찾아옴 · `conclusion` 오래 이어진 변제 다툼). 10/20에 `sub-1` → `origin`(발단), `detail-1` → `conclusion`(결론)으로 이름을 바꿨다(FE-63, 프론트 `case-1-origin.webp` · `case-1-conclusion.webp`와 맞춤).
+- **공용 재연 컷은 범죄 분류 × 자리로 나눈다**(FE-65, 10/27). `reenact-common-{property|body|life}_cut_{headline|origin|conclusion}.png`. 옛 세트 1(`reenact-common`, 사무실 장면)은 `property`(재산), 옛 세트 2(`reenact-common-2`, 방 · 문 · 카페 장면)는 `body`(신체)로 옮기고 `detail-1` → `origin`, `sub-1` → `conclusion`으로 이름을 바꿨다. `life`(생명)는 10/27에 새로 만들었다(2등신 마스코트, 노을빛 실내, 서류 · 마주 앉음 · 창가 벤치). 프론트 웹 이름은 `common-{분류}-{reenact|origin|conclusion}.webp`다.
+- **옛 세트 2**는 10/14에 사건 1 샘플(`reenact-case-1_cut_*_sample`)로 만든 것을 10/15에 공용으로 옮긴 것이다. 사건 1 재연 컷은 10/19에 새로 만들어 `cuts/reenact/case-1/`에 넣었다(`headline` 다툼이 고조되는 순간 · `origin` 집으로 찾아옴 · `conclusion` 오래 이어진 변제 다툼). 10/20에 `sub-1` → `origin`(발단), `detail-1` → `conclusion`(결론)으로 이름을 바꿨다(FE-63, 프론트 `case-1-origin.webp` · `case-1-conclusion.webp`와 맞춤).
   - 옛 경로 임시 사본(`cuts/reenact/case-1/reenact-case-1_cut_*_sample.png` 3장)은 프론트 경로를 고친 PR(COMMON-35, #149)이 머지된 10/16에 지웠다.
 - **사건별 재연 역할 배정**(역할 순환): 사건 1(빌린 돈 문제로 찾아온 지인을 살해한 사건, 가상) = 남불 A씨(빌린 쪽) · 내로 B씨(빌려준 쪽). 의상은 사건마다 정하고 내로의 반다나는 뺀다. 다음 사건은 반대로 맡는다.
 - `_original/`의 이름은 `original_` + 위 규칙이고, 같은 이미지를 다시 뽑은 이력은 `_v1` `_v2`로 구분한다(예: `original_personality-13_nambul_whiteboard_v3.png`). 정식 파일과 내용이 같은 사본이 대부분이고, 탈락본(예: `original_law-book_standing_a2-tall-book.png`)은 `_original/`에만 있다.
@@ -103,7 +104,7 @@ character/
 | 마스코트 컷 · 볼따구 컷 · 아이콘 | ✅ (`idle-neutral`은 스탠딩을 4:5로 변환) |
 | 로 컷(로울 · 로봉 · 로북) · 합의 · 비교 컷 | ✅ |
 | 성향 결과 32장(16유형 × 내로 · 남불) | ✅ |
-| 공용 재연 컷 6장(세트 1 · 2) | ✅ (세트 2는 10/15 사건 1 샘플에서 옮김) |
+| 공용 재연 컷 9장(재산 · 신체 · 생명 × 3) | ✅ (신체는 10/15 사건 1 샘플에서 옮김, 생명은 10/27 신규) |
 | 연기 · 역할 의상 · 데포르메 시트 | ✅ (란마는 목표 약 5등신에 못 미침, 3 ~ 4등신) |
 | 10/19 · 10/20 추가분(마스코트 로 스탠딩 · 시트 · 컷, 라인업 · 의상 시트, 역할 컷, 사건 1 재연 컷, 소품 시트, 볼따구 컷 재생성 · `cheek-slim` 시트) | ✅ 10/20 검수 통과. 로울 마스코트 `idle-neutral`의 반투명 회색 번짐과 내로 `role-actor`의 셔츠 주변 흰 번짐은 후처리한 파일로 교체했다(옛 파일은 올리지 않고 로컬 `discard/`에 둠). 사건 1 `sub-1`은 남불이 화면에 없는 구도로 설명을 바꿈(사진 그대로 사용). 소품 시트 · `detail-1`의 날카로운 표정은 완화된 표정 규칙에 맞아 문제 없음. `cheek-slim`은 그대로 사용 |
 
