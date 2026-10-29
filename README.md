@@ -58,7 +58,8 @@ character/
 │   │   └── mascot/  마스코트 버전 로 컷 `{로}_cut-mascot_{장면}-{감정}.png` (로 3종)
 │   ├── personality/     성향 결과 컷(16유형 × 2캐릭터)
 │   ├── reenact/common/  사건 이미지가 없을 때 쓰는 공용 재연 컷(범죄 분류 `property`(재산) · `body`(신체) · `life`(생명) 3종 × 자리 3장)
-│   ├── reenact/case-{사건 id}/  사건별 재연 컷(`headline` · `origin` · `conclusion`, 공용도 같은 자리)
+│   ├── reenact/case-{사건 키}/  사건별 재연 컷(`reenact-case-{사건 키}_cut_{headline|origin|conclusion}.png`, 공용도 같은 자리. 사건 키는 DB 사건 번호, 예: `case-5/reenact-case-5_cut_headline.png`)
+│   ├── reenact/background/  공용 배경 16장(`bg-B01` ~ `bg-B16`, 불투명, 투명 컷 합성용 폴백)
 │   ├── trio/            로 3인 합의 컷(`trio_cut_*` 기존 · `trio_cut-mascot_*` 마스코트 버전)
 │   └── compare/         내로 · 로울 · 남불 비교 컷(`compare_cut_*` 기존 · `compare_cut-mascot_*` 마스코트 버전)
 └── _original/    생성 직후 원본 백업(169장, `original_` 접두사)
@@ -110,7 +111,7 @@ character/
 
 남은 일: 없음. 아래는 **보류**한다.
 
-- 사건별 재연 컷: 사건이 아직 정해지지 않았고 관리자 페이지에서 넣을 수도 있어 보류.
+- 사건별 재연 컷: 10/29에 사건 21건(DB 번호 2 ~ 22) × 3장(63장, 투명 컷)과 공용 배경 16장을 올렸다. 화면에는 컷에 배경을 합성한 임시본이 쓰이고(웹 변환본은 공개 저장소 `frontend/public/images/cases/`), 앞으로 사건 재연 컷은 배경 포함으로 뽑는다. 합성 PNG(`composite/`)는 용량이 커서 이 저장소에 올리지 않는다.
 - 로 데포르메 세부 시트(`cheek` · `ranma` · `ppg` 9장): 종합 시트(`deform-lineup`)가 있어 보류, 필요하면 후속에서 생성.
 
 성인 비율 로(`law-*_standing`, `law-*_cut_*`, `trio_cut_*`, `compare_cut_trio-thinking`, 로 의상 시트)는 마스코트 로로 화면을 바꾼 뒤에도 쓸 예정이라 그대로 둔다. 최신 목록은 아래 기준 문서를 본다.
@@ -118,6 +119,8 @@ character/
 ## 기준 문서
 
 이름 규칙 · 감정 코드 · 검수 기준 · 이미지 목록은 공개 저장소 문서가 기준이다.
+
+- `docs/character/image-storage-rules.md` — **폴더 · 이름 · 원본 백업 · 웹 변환 대응의 기준** (이 README의 규칙과 다르면 이 문서가 맞다)
 
 - `docs/character/character-image-checklist.md` — 이미지 목록 · 진행 상태 · 검수 기록 · 생성 프롬프트
 - `docs/character/character-asset-architecture.md` — 에셋 아키텍처(이름 · 경로 · 크기)
