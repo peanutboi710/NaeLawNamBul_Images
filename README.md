@@ -35,6 +35,7 @@
 - **장면** `idle` · `guide` · `react` · `read` · `cheer` · `deliver`, **감정** `neutral` · `happy` · `surprised` · `thinking` · `sorry` · `cheer`. 안내 · 리액션 · 성향 결과 · 아이콘에는 화난 표정을 쓰지 않는다(감정 코드에 `angry` 없음). 재연 · 연기 · 시트에서는 극적 긴장감 · 감정선을 위해 날카롭거나 화난 표정도 허용한다(10/20 완화, 폭력 · 조롱은 금지).
 - **성향 결과**: 번호 `01 ~ 16`은 유형에 고정되어 있다. 한 유형마다 내로 · 남불 두 장이 있다. 번호 · 유형명 · 기본 캐릭터는 공개 저장소의 성향 이미지 번호표를 본다.
 - 이미지 안에는 글자 · 숫자 · 로고를 넣지 않는다.
+- **바라보는 방향**: 내로 단일 컷은 오른쪽, 남불은 왼쪽을 본다(화면은 서 있는 곳에서 가운데를 보게 좌우로 뒤집는다). **좌우를 따로 그린 컷**(COMMON-73): 물음표처럼 글자가 든 컷은 뒤집으면 글자가 거울 글씨가 되므로 반대 방향본을 `{기본 이름}-mirror.png`로 함께 둔다(물음표만 떼어 몸을 뒤집고 물음표는 그대로 다시 붙임). 기본 이름이 규칙 방향, `-mirror`가 반대 방향이다. 지금은 볼따구 · 볼따구 슬림 `idle-thinking` 내로 · 남불 4장.
 - **웹용 이름은 다르다.** 웹 webp는 `{장면}-{감정}.webp`, `01.webp`처럼 별도 규칙이고, 이 저장소의 이름과 대응은 변환할 때 정한다.
 
 ## 폴더 구조
@@ -52,13 +53,14 @@ character/
 ├── cuts/         화면에 쓰는 컷(투명 배경)
 │   ├── {캐릭터}/base/   장면 컷(하위 폴더로 나눔) · {캐릭터}/icon/   아이콘
 │   │   ├── scene/   장면 컷 `{캐릭터}_cut_{장면}-{감정}.png`
-│   │   ├── cheek/   볼따구 컷 `{캐릭터}_cut-cheek_*.png` (내로 · 남불, 시트 `deform-cheek` 기준 · 만두형 몸통)
+│   │   ├── cheek/   볼따구 컷 `{캐릭터}_cut-cheek_*.png` (내로 · 남불, 시트 `deform-cheek` 기준 · 만두형 몸통). `idle-thinking`은 반대 방향본 `*-mirror.png`가 함께 있다(아래 "좌우를 따로 그린 컷")
 │   │   ├── cheek-slim/  옛 볼따구 컷 `{캐릭터}_cut-cheek-slim_*.png` (내로 · 남불, 호리호리한 몸통 · 옅은 볼 · 작은 눈 · 보존용)
 │   │   ├── role/    재연 역할 컷 `{캐릭터}_cut-role-{judge|prosecutor|defense|actor|case-1}_idle-neutral.png` (내로 · 남불)
 │   │   └── mascot/  마스코트 버전 로 컷 `{로}_cut-mascot_{장면}-{감정}.png` (로 3종)
 │   ├── personality/     성향 결과 컷(16유형 × 2캐릭터)
 │   ├── reenact/common/  사건 이미지가 없을 때 쓰는 공용 재연 컷(범죄 분류 `property`(재산) · `body`(신체) · `life`(생명) 3종 × 자리 3장)
 │   ├── reenact/case-{사건 키}/  사건별 재연 컷(`reenact-case-{사건 키}_cut_{headline|origin|conclusion}.png`, 공용도 같은 자리. 사건 키는 DB 사건 번호, 예: `case-5/reenact-case-5_cut_headline.png`)
+│   ├── inquiry/         탐구 · 대화 컷 9장(`inquiry_cut_{reading|magnifier|talk|walk|window|board|reporter|clue|sign}.png`, 16:9, 배경 포함). `reporter` · `clue` · `sign`은 옛 공용 재연 컷(discard)을 11/03에 옮긴 것(COMMON-73)
 │   ├── reenact/background/  공용 배경 16장(`bg-B01` ~ `bg-B16`, 불투명, 투명 컷 합성용 폴백)
 │   ├── trio/            로 3인 합의 컷(`trio_cut_*` 기존 · `trio_cut-mascot_*` 마스코트 버전)
 │   └── compare/         내로 · 로울 · 남불 비교 컷(`compare_cut_*` 기존 · `compare_cut-mascot_*` 마스코트 버전)
