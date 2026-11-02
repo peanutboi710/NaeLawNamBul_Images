@@ -26,9 +26,9 @@
 
 | 구분 | 값 |
 | --- | --- |
-| 대상 | `naero` · `nambul` · `law-scale` · `law-gavel` · `law-book` · `trio`(로 3인) · `compare`(내로 · 로울 · 남불 비교) · `reenact-common-{분류}`(공용 재연, 분류 `property` · `body` · `life`) · `reenact-case-{사건 id}`(사건별 재연) · `personality-{번호}_{캐릭터}`(성향 결과) · `all`(여럿이 함께 나오는 시트) |
+| 대상 | `naero` · `nambul` · `law-scale` · `law-gavel` · `law-book` · `trio`(로 3인) · `compare`(내로 · 로울 · 남불 비교) · `reenact-common-{분류}`(공용 재연, 분류 `property` · `body` · `life` · `robbery` · `theft`) · `inquiry`(탐구 · 대화 컷) · `reenact-case-{사건 id}`(사건별 재연) · `personality-{번호}_{캐릭터}`(성향 결과) · `all`(여럿이 함께 나오는 시트) |
 | 종류 | `standing`(스탠딩) · `sheet`(시트) · `cut`(장면 컷) · `cut-cheek`(볼따구 컷) · `cut-cheek-slim`(옛 볼따구 컷) · `cut-role-{judge|prosecutor|defense|actor|case-{사건 id}}`(재연 역할 컷) · `cut-mascot`(마스코트 로 컷) · `icon`(아이콘) |
-| 세부 | 시트: `reference` · `acting` · `role-outfits` · `wardrobe`(의상) · `deform-lineup`(데포르메 묶음) · `deform-mascot` · `deform-ranma` · `deform-cheek` · `deform-cheek-slim` · `deform-ppg`, 컷: `{장면}-{감정}` (예: `guide-neutral`), 마스코트 로 합의 · 비교 컷은 `trio_cut-mascot_{idle|think}` · `compare_cut-mascot_trio-thinking` |
+| 세부 | 시트: `reference` · `acting` · `role-outfits` · `wardrobe`(의상) · `deform-lineup`(데포르메 묶음) · `deform-mascot` · `deform-cheek` · `deform-cheek-slim` · `deform-ppg`, 컷: `{장면}-{감정}` (예: `guide-neutral`), 마스코트 로 합의 · 비교 컷은 `trio_cut-mascot_{idle|think}` · `compare_cut-mascot_trio-thinking` |
 
 예: `naero_standing.png` · `law-gavel_sheet_reference.png` · `nambul_cut_guide-neutral.png` · `naero_icon_face-cheer.png` · `personality-06_naero_pinky-promise.png` · `trio_cut_idle.png` · `reenact-common-property_cut_headline.png` · `naero_cut-role-judge_idle-neutral.png` · `law-scale_cut-mascot_idle-neutral.png` · `naero_sheet_deform-cheek-slim.png`
 
